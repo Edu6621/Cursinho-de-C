@@ -1,0 +1,9 @@
+//3. Leia um número e imprima o resultado do quadrado deste número.
+#include <stdio.h>
+int main () {
+    float a,b;
+    printf ("insira um número : ");
+    scanf ("%f", &a);
+    b=a*a;
+    printf ("o quadrado desse número é : %.2f", b);
+}
