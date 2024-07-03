@@ -1,0 +1,13 @@
+//1. Faça um programa que leia três valores e apresente como resultado a soma dos quadrados dos valores
+//lidos. 
+#include <stdio.h>
+int main () {
+    float a,b,c,d;
+    printf ("insira 3 valores :\n");
+    scanf("%f", &a);
+    scanf("%f", &b);
+    scanf("%f", &c);
+    d=(a*a)+(b*b)+(c*c);
+    printf ("a soma dos quadrados dos valores é : %.2f", d);
+    return 0;
+}
