@@ -1,0 +1,14 @@
+//2. Faça um programa que tenha uma função que, dado um caractere qualquer de
+//entrada, retorne o mesmo caractere sempre em maiúsculo. 
+#include <stdio.h>
+int main () {
+    char cha;
+    printf ("infome um caractere : ");
+    scanf ("%c", &cha);
+    if (cha<97 || cha>122){
+        printf ("letra inválida");
+        return 0;
+    }
+    cha-=32;
+    printf ("%c", cha);
+}
