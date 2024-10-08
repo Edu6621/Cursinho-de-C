@@ -1,0 +1,28 @@
+/*3. Considerando a estrutura que representa um vetor R3:
+struct Vetor{
+float x;
+float y;
+float z;
+};
+Implemente um programa que receba, calcule e apresente a soma de dois vetores. */
+#include <stdio.h>
+struct vetor {
+    float x;
+    float y;
+    float z;
+} vet[3];
+int main () {
+    for (int i=0; i<2; i++){
+        printf ("===== Vetor %i =====\n", i+1);
+        printf ("informe o valor de x : ");
+        scanf ("%f", &vet[i].x);
+        printf ("informe o valor de y : ");
+        scanf ("%f", &vet[i].y);
+        printf ("informe o valor de z : ");
+        scanf ("%f", &vet[i].z);
+    }
+    vet[2].x = vet[0].x + vet[1].x;
+    vet[2].y = vet[0].y + vet[1].y;
+    vet[2].z = vet[0].z + vet[1].z;
+    printf ("a soma dos valores é : \n%.2f\n%.2f\n%.2f\n", vet[2].x, vet[2].y, vet[2].z);
+}
