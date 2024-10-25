@@ -1,0 +1,15 @@
+// 2. Faça um programa que contenha duas variáveis inteiras. Leia estas variáveis do teclado. Em seguida,
+// compare seus endereços e exiba o conteúdo do maior endereço.
+#include <stdio.h>
+int main () {
+    int a, b;
+    printf ("informe dois valores :\n");
+    scanf ("%i", &a);
+    scanf ("%i", &b);
+    if (&a > &b){
+        printf ("o maior é o de %i", a);
+    }else{
+        printf ("o maior é o de %i", b);
+    }
+    return 0;
+}
