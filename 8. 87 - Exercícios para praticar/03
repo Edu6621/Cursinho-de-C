@@ -1,0 +1,42 @@
+/* 3. Faça um programa que receba do usuário o tamanho de uma string e chame uma função para locar
+dinamicamente essa string. Receba esta string do usuário. Por fim, apresente conteúdo dessa string sem
+suas vogais. */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void apresentar_sem_vogal(char string[],int n){
+    for (int i=0; i<n; i++){
+        if (string[i] != 'a' && string[i] != 'e' && string[i] != 'i' && string[i] != 'o' && string[i] != 'u' &&
+            string[i] != 'A' && string[i] != 'E' && string[i] != 'I' && string[i] != 'O' && string[i] != 'U') {
+                printf ("%c", string[i]);
+        }
+    }
+}
+
+char* alocacao(int n) {
+    char *string = (char *)malloc((n + 1) * sizeof(char)); // +1 para o terminador nulo
+    if (string == NULL) {
+        printf("Erro ao alocar memória!\n");
+        exit(1);
+    }
+    return string;
+}    
+int main () {
+    int n;
+
+    printf ("informe o tamanho de uma string : ");
+    scanf ("%i", &n);
+    
+    char *string = alocacao(n);
+    
+    getchar();
+    
+    printf ("informe a string : ");
+    fgets(string, n + 1, stdin);
+    string[strcspn(string, "\n")] = '\0';
+    
+    apresentar_sem_vogal(string, n);
+    
+    free (string);
+    return 0;
+}
