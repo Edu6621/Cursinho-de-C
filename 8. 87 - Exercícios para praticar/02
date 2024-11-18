@@ -1,0 +1,30 @@
+/* 2. Faça um programa aloque inicialmente um vetor com 3 inteiros,
+pergunte ao usuário quantos valores ele
+quer informar, use REALLOC caso seja mais que 3 valores, leia e apresente os valores.  */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    
+    int *p = calloc(3, sizeof(int));
+    int n;
+    
+    printf ("informe a quantidade de valores para alocar : ");
+    scanf ("%i", &n);
+    
+    if (n>3){
+        p = realloc(p, n * sizeof(int));
+    }
+    else {
+        return 0;
+    }
+    for (int i=0; i<n; i++){
+        printf ("%i ) Informe um valor : ", i+1);
+        scanf ("%i", &*(p+i));
+    }
+    for (int i=0; i<n; i++){
+        printf ("%i ", *(p+i));
+    }
+    free (p);
+    return 0;
+}
