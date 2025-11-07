@@ -1,0 +1,41 @@
+/* 1. Faça um programa que:
+a) Crie/abra um arquivo texto de nome “arq.txt”;
+b) Permita que o usuário grave diversos caracteres
+neste arquivo, até que o usuário entre com o caractere ‘0’;
+c) Feche o arquivo;
+d) Abra e leia o arquivo, caractere por caractere, e escreva 
+na tela todos os caracteres armazenados. */
+
+#include <stdio.h>
+
+int main () {
+    FILE *arq, *arq2;
+    //int resultado;
+    char caractere = 'a';
+    arq = fopen("arq.txt", "a");
+    if (!arq){
+        printf ("Erro ao criar o arquivo !!");
+        return 1;
+
+    }while (caractere != '0'){
+        printf ("Informe um caractere : ");
+        scanf (" %c", &caractere);
+
+        if (caractere != '0'){
+            fputc(caractere, arq);
+        }
+    }
+    fclose (arq);
+
+    arq2 = fopen("arq.txt", "r");
+
+    if (!arq2){
+        printf ("Erro ao criar o arquivo !!");
+        return 1;
+    }
+    while ((caractere = getc(arq2)) != EOF){
+        printf ("%c", caractere);
+    }
+    fclose (arq2);
+    return 0;
+}
