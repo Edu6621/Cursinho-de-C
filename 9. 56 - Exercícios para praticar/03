@@ -1,0 +1,38 @@
+/*3. Faça um programa que receba do usuário o nome de um
+arquivo texto e um caractere. Mostre na tela
+quantas vezes aquele caractere aparece dentro do arquivo. */
+#include <stdio.h>
+#include <string.h>
+
+int main () {
+    FILE *arq;
+    char nmArq[100];
+    
+    char caractere; 
+    int qtd = 0;
+    
+    int c;
+
+    printf ("Informe o nome do arquivo : ");
+    fgets (nmArq, sizeof(nmArq), stdin);
+    nmArq[strcspn(nmArq, "\n")] = '\0';
+
+    printf ("Informe o caractere : ");
+    scanf (" %c", &caractere);
+
+    arq = fopen(nmArq, "r");
+
+    if (arq == NULL) {
+        printf("Erro ao abrir o arquivo '%s'\n", nmArq);
+        return 1;
+    }
+    while ((c = fgetc(arq)) != EOF){
+        if (c == caractere){
+            qtd++;
+        }
+    }
+    
+    printf ("Tem %d caracteres '%c' no arquivo\n", qtd, caractere);
+    fclose (arq);
+    return 0;
+}
