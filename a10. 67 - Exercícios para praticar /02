@@ -1,0 +1,19 @@
+// 2. Crie um programa que tenha uma função recursiva
+// que calcule e retorne o fatorial de um número inteiro N. 
+
+#include <stdio.h>
+int fat(int n){
+    if (n == 1){
+        return 1;
+    }
+    return n * fat(n-1);
+}
+
+int main () {
+    int n;
+    printf ("Informe um número : ");
+    scanf ("%d", &n);
+    
+    printf ("O fatorial de %d é : %d", n, fat(n));
+    return 0;
+}
